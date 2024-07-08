@@ -18,6 +18,10 @@ Day TimeSlot::get_day() const {
     return day;
 }
 
+bool TimeSlot::operator==(const TimeSlot& other) const {
+    return start_time == other.start_time;
+}
+
 std::string TimeSlot::day_to_string() const {
     switch (day) {
         case Day::MONDAY:

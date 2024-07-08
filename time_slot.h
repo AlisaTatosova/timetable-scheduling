@@ -24,6 +24,7 @@ public:
     bool operator<(const TimeSlot& other) const;
     void display_info() const;
     std::string day_to_string() const;
+    bool operator==(const TimeSlot& other) const;
  
 private:
     Day day;
