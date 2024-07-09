@@ -1,39 +1,35 @@
 #include "university.h"
 #include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
 
 int main() {
-    TimeSlot t1(Day::MONDAY, "12:00", "13:00");
-    TimeSlot t2(Day::MONDAY, "13:00", "14:00");
-    TimeSlot t3(Day::MONDAY, "15:00", "16:00");
+    TimeSlot timeSlot1("MONDAY", "09:00", "10:00");
+    TimeSlot timeSlot2("MONDAY", "11:00", "12:00");
+    TimeSlot timeSlot3("TUESDAY", "09:00", "10:00");
+    TimeSlot timeSlot4("WEDNESDAY", "11:00", "12:00");
+   
+    Course course1("Math", {timeSlot1, timeSlot2});
+    Course course2("Programming", {timeSlot2, timeSlot3});
+    Course course3("English", {timeSlot3, timeSlot4});
+    Course course4("History", {timeSlot1, timeSlot3});
 
+    Instructor instructor1("Alisa", {timeSlot1, timeSlot2}, {course4, course2});
+    Instructor instructor2("David", {timeSlot1, timeSlot2, timeSlot3}, {course1, course3});
+    Instructor instructor3("Anna", {timeSlot2, timeSlot4}, {course1});
 
-    Course c1{"math", {t1, t2}};
-    Course c2{"english", {t2, t3}};
-    Course c3{"programming", {t3}};
-
-    Instructor i1{"ani", {t3, t1}, {c1, c2}};
-    Instructor i2{"anna", {t1, t2}, {c1, c2}};
-    Instructor i3{"alis", {t1, t2, t3}, {c3}};
-
-    // Instructor c4{"vardan", {t7, t8}, {}};
-
-    University u;
-    
-    u.add_timeslot(t1);
-    u.add_timeslot(t2);
-    u.add_timeslot(t3);
-
-    u.add_course(c1);
-    u.add_course(c2);
-    u.add_course(c3);
-    u.add_instructor(i1);
-    u.add_instructor(i2);
-    u.add_instructor(i3);
-    // a.add_instructor(i4);
-    u.schedule();
-
+    University university;
+    university.add_timeslot(timeSlot1);
+    university.add_timeslot(timeSlot2);
+    university.add_timeslot(timeSlot3);
+    university.add_timeslot(timeSlot4);
+    university.add_course(course1);
+    university.add_course(course2);
+    university.add_course(course3);
+    university.add_course(course4);
+    university.add_instructor(instructor1);
+    university.add_instructor(instructor2);
+    university.add_instructor(instructor3);
+   
+    university.schedule();
+    university.save_state("state.json");
+    university.load_state("state.json");
 }
