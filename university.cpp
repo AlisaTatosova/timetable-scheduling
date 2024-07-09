@@ -10,22 +10,27 @@ void University::add_timeslot(const TimeSlot& time) {
 
 void University::add_instructor(Instructor& instructor) {
     instructors.push_back(instructor);
-    const auto& availabilities_of_instructor = instructor.get_availabilty();
-    for (const auto& available : availabilities_of_instructor) {
-        if (std::find(timeslots.begin(), timeslots.end(), available) != timeslots.end()) {
-            slots_with_available_instructors[available].insert(instructor);
+}
+
+void University::create_map_with_instructor_avalabilities() {
+    for (const auto& instructor : instructors) {
+        const auto& availabilities_of_instructor = instructor.get_availabilty();
+        for (const auto& available : availabilities_of_instructor) {
+            if (std::find(timeslots.begin(), timeslots.end(), available) != timeslots.end()) {
+                slots_with_available_instructors[available].insert(instructor);
+            }
         }
     }
 }
 
-bool University::preferred_course_and_preferred_slot(const Course& course, const Instructor& instructor,const TimeSlot& slot) {
+bool University::preferred_course(const Course& course, const Instructor& instructor,const TimeSlot& slot) {
     if (!not_occupied(slot)) {
         return false;
     }
 
     const auto& preferences = instructor.get_preferred_courses();
     for (const auto& pref_course : preferences) {
-        if (pref_course.get_course_name() == course.get_course_name()) {
+        if (pref_course == course) {
             return true;
         }
     }
@@ -170,6 +175,7 @@ void University::load_state(const std::string& filename) {
 }
 
 void University::schedule() {
+    create_map_with_instructor_avalabilities();
     bool solution_found = false;
     schedule_course(0, solution_found);
 
@@ -179,76 +185,81 @@ void University::schedule() {
         std::get<1>(it).display_info();
         std::cout << std::endl;
     }
+
+    if (!solution_found) {
+        std::cout << "No valid timetable can be made" << std::endl;
+    }
+}
+
+// preferred course for instructor and preferred slot for course 
+void University::two_soft_constraints_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course) {
+    const auto& preferred_slots = current_course.get_preferred_slots(); 
+    for (const auto& slot : preferred_slots) {
+        for (const auto& instructor : slots_with_available_instructors[slot]) {
+            if (preferred_course(current_course, instructor, slot)) { 
+                possible.push_back(std::make_tuple(current_course, instructor, slot));   
+            }
+        }
+    }
+}
+
+// preferred course for instructor, but not preferred slot for course 
+void University::preferred_course_soft_constraint_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course) {
+    const auto& preferred_slots = current_course.get_preferred_slots(); 
+    for (const auto& slot : timeslots) {  
+        if (!(std::find(preferred_slots.begin(), preferred_slots.end(), slot) != preferred_slots.end())) {
+            for (const auto& instructor : slots_with_available_instructors[slot]) { 
+                if (preferred_course(current_course, instructor, slot)) { 
+                    possible.push_back(std::make_tuple(current_course, instructor, slot));     
+                }
+            }
+        }
+    }
+}
+
+// not preferred course for instructor, but preferred slot for course 
+void University::preferred_slot_soft_constraint_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course) {
+    const auto& preferred_slots = current_course.get_preferred_slots(); 
+    for (const auto& slot : preferred_slots) {   
+        for (const auto& instructor : slots_with_available_instructors[slot]) { 
+            if (not_occupied(slot)) { 
+                possible.push_back(std::make_tuple(current_course, instructor, slot));     
+            }
+        }   
+    }
+}
+
+// not preferred course for instructor, not preferred slot for course (but some slot and course that exist)
+void University::two_soft_constraints_not_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course) {
+    const auto& preferred_slots = current_course.get_preferred_slots(); 
+    for (const auto& slot : timeslots) {
+        if (!(std::find(preferred_slots.begin(), preferred_slots.end(), slot) != preferred_slots.end())) {
+            for (const auto& instructor : slots_with_available_instructors[slot]) { 
+                if (not_occupied(slot)) { 
+                    possible.push_back(std::make_tuple(current_course, instructor, slot));     
+                }
+            }
+        }
+    }
 }
 
 void University::schedule_course(int i, bool& solution_found) { 
     if (i == courses.size()) {
         solution_found = true;
-        // for (const auto& it : pair) {
-        //     std::cout << std::get<0>(it).get_course_name() << " " <<  std::get<1>(it).get_name() << " " << std::get<2>(it).get_start_time() << " - " << std::get<2>(it).get_end_time() << "        ";
-        //     std::cout << std::endl;
-        // }
-        //std::cout << std::endl;
         return;
     } 
 
     Course& current_course = courses[i];
     std::vector<std::tuple<Course, Instructor, TimeSlot>> possible;
-    const auto& preferred_slots = current_course.get_preferred_slots(); 
 
-    // possible - i mej skzbum qcum enq nranq voronq ev preferred timeslot en course-i hamar ev preferred course instructori hamar
-    for (const auto& slot : preferred_slots) {
-        for (const auto& instructor : slots_with_available_instructors[slot]) { // frum enq et jamin azat instructorneri vrayov
-            if (preferred_course_and_preferred_slot(current_course, instructor, slot)) { 
-                // std::cout << "           " << slot.get_start_time() << " " << instructor.get_name() << " " << std::endl;
-                std::tuple<Course, Instructor, TimeSlot> tuple = std::make_tuple(current_course, instructor, slot);
-                possible.push_back(tuple);   
-            }
-        }
-    }
-
-    // heto qcum enq instructori preferred course lini, bayc preferred jami chlini
-    for (const auto& slot : timeslots) {  
-        if (!(std::find(preferred_slots.begin(), preferred_slots.end(), slot) != preferred_slots.end())) {
-            for (const auto& instructor : slots_with_available_instructors[slot]) { // frum enq et jamin azat instructorneri vrayov
-                //   std::cout << course.get_course_name() << " " <<   slot.get_start_time() << " " << instructor.get_name() << " " << std::endl;
-                if (preferred_course_and_preferred_slot(current_course, instructor, slot)) { // nayum enq vor nayev derevs zbaxvac chlini et slots u nayev prefered course lini yntrvac instructori hamar
-                    // std::cout << "           " << slot.get_start_time() << " " << instructor.get_name() << " " << std::endl;
-                    std::tuple<Course, Instructor, TimeSlot> tuple = std::make_tuple(current_course, instructor, slot);
-                    possible.push_back(tuple);     
-                }
-            }
-        }
-    }
-
-    // qcum enq vor preffer slota tvyal course i hamar bayc instructori preffered course chi
-    for (const auto& slot : preferred_slots) {   
-        for (const auto& instructor : slots_with_available_instructors[slot]) { 
-            //   std::cout << course.get_course_name() << " " <<   slot.get_start_time() << " " << instructor.get_name() << " " << std::endl;
-            if (not_occupied(slot)) { // nayum enq vor nayev derevs zbaxvac chlini et slots u nayev prefered course lini yntrvac instructori hamar
-                // std::cout << "           " << slot.get_start_time() << " " << instructor.get_name() << " " << std::endl;
-                std::tuple<Course, Instructor, TimeSlot> tuple = std::make_tuple(current_course, instructor, slot);
-                possible.push_back(tuple);     
-            }
-        }   
-    }
-
-    // voch preffered slota, voch el instructori hamar preffered course
-    for (const auto& slot : timeslots) {
-        if (!(std::find(preferred_slots.begin(), preferred_slots.end(), slot) != preferred_slots.end())) {
-            for (const auto& instructor : slots_with_available_instructors[slot]) { 
-                if (not_occupied(slot)) { // nayum enq vor nayev derevs zbaxvac chlini et slots u nayev prefered course lini yntrvac instructori hamar
-                    std::tuple<Course, Instructor, TimeSlot> tuple = std::make_tuple(current_course, instructor, slot);
-                    possible.push_back(tuple);     
-                }
-            }
-        }
-    }
-
-    // frum enq current course i hamar hnaravor combinationnerov (skzbum erb bolor softery bavararvuma, heto mekn u meky, ..,)
+    two_soft_constraints_satisfy(possible, current_course); // preferred course for instructor and preferred slot for course 
+    preferred_course_soft_constraint_satisfy(possible, current_course); // preferred course for instructor, but not preferred slot for course 
+    preferred_slot_soft_constraint_satisfy(possible, current_course); // not preferred course for instructor, but preferred slot for course 
+    two_soft_constraints_not_satisfy(possible, current_course); // not preferred course for instructor, not preferred slot for course (but some slot and course that exist)
+    
     for (const auto& current_course_possible_combination : possible) {  
         timetable.push_back(current_course_possible_combination);
-        schedule_course(i + 1, solution_found);  // dfs ov bacvuma 
+        schedule_course(i + 1, solution_found);  
         if (solution_found) {
             return;
         }

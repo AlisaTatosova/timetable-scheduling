@@ -1,0 +1,294 @@
+{
+    "courses": [
+        {
+            "course_name": "Math",
+            "preferred_slots": [
+                {
+                    "day": "MONDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "MONDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                }
+            ]
+        },
+        {
+            "course_name": "Programming",
+            "preferred_slots": [
+                {
+                    "day": "MONDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                },
+                {
+                    "day": "TUESDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "English",
+            "preferred_slots": [
+                {
+                    "day": "TUESDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "WEDNESDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                }
+            ]
+        },
+        {
+            "course_name": "History",
+            "preferred_slots": [
+                {
+                    "day": "MONDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "TUESDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "Spanish",
+            "preferred_slots": [
+                {
+                    "day": "WEDNESDAY",
+                    "end_time": "14:00",
+                    "start_time": "13:00"
+                },
+                {
+                    "day": "TUESDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "Calculus",
+            "preferred_slots": [
+                {
+                    "day": "MONDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                },
+                {
+                    "day": "TUESDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "Diskret",
+            "preferred_slots": [
+                {
+                    "day": "FRIDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                },
+                {
+                    "day": "TUESDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                }
+            ]
+        }
+    ],
+    "instructors": [
+        {
+            "availability": [
+                {
+                    "day": "MONDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "MONDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                },
+                {
+                    "day": "FRIDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                }
+            ],
+            "name": "Alisa",
+            "preferred_courses": [
+                {
+                    "course_name": "History",
+                    "preferred_slots": [
+                        {
+                            "day": "MONDAY",
+                            "end_time": "10:00",
+                            "start_time": "09:00"
+                        },
+                        {
+                            "day": "TUESDAY",
+                            "end_time": "10:00",
+                            "start_time": "09:00"
+                        }
+                    ]
+                },
+                {
+                    "course_name": "Programming",
+                    "preferred_slots": [
+                        {
+                            "day": "MONDAY",
+                            "end_time": "12:00",
+                            "start_time": "11:00"
+                        },
+                        {
+                            "day": "TUESDAY",
+                            "end_time": "10:00",
+                            "start_time": "09:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "availability": [
+                {
+                    "day": "MONDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "MONDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                },
+                {
+                    "day": "TUESDAY",
+                    "end_time": "10:00",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "WEDNESDAY",
+                    "end_time": "14:00",
+                    "start_time": "13:00"
+                }
+            ],
+            "name": "David",
+            "preferred_courses": [
+                {
+                    "course_name": "Math",
+                    "preferred_slots": [
+                        {
+                            "day": "MONDAY",
+                            "end_time": "10:00",
+                            "start_time": "09:00"
+                        },
+                        {
+                            "day": "MONDAY",
+                            "end_time": "12:00",
+                            "start_time": "11:00"
+                        }
+                    ]
+                },
+                {
+                    "course_name": "English",
+                    "preferred_slots": [
+                        {
+                            "day": "TUESDAY",
+                            "end_time": "10:00",
+                            "start_time": "09:00"
+                        },
+                        {
+                            "day": "WEDNESDAY",
+                            "end_time": "12:00",
+                            "start_time": "11:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "availability": [
+                {
+                    "day": "MONDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                },
+                {
+                    "day": "WEDNESDAY",
+                    "end_time": "12:00",
+                    "start_time": "11:00"
+                },
+                {
+                    "day": "WEDNESDAY",
+                    "end_time": "13:00",
+                    "start_time": "12:00"
+                }
+            ],
+            "name": "Anna",
+            "preferred_courses": [
+                {
+                    "course_name": "Math",
+                    "preferred_slots": [
+                        {
+                            "day": "MONDAY",
+                            "end_time": "10:00",
+                            "start_time": "09:00"
+                        },
+                        {
+                            "day": "MONDAY",
+                            "end_time": "12:00",
+                            "start_time": "11:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "timeslots": [
+        {
+            "day": "MONDAY",
+            "end_time": "10:00",
+            "start_time": "09:00"
+        },
+        {
+            "day": "MONDAY",
+            "end_time": "12:00",
+            "start_time": "11:00"
+        },
+        {
+            "day": "TUESDAY",
+            "end_time": "10:00",
+            "start_time": "09:00"
+        },
+        {
+            "day": "WEDNESDAY",
+            "end_time": "12:00",
+            "start_time": "11:00"
+        },
+        {
+            "day": "WEDNESDAY",
+            "end_time": "13:00",
+            "start_time": "12:00"
+        },
+        {
+            "day": "WEDNESDAY",
+            "end_time": "14:00",
+            "start_time": "13:00"
+        },
+        {
+            "day": "FRIDAY",
+            "end_time": "12:00",
+            "start_time": "11:00"
+        }
+    ]
+}

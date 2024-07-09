@@ -22,10 +22,16 @@ public:
     void load_state(const std::string& filename);
 
 private:
-    bool preferred_course_and_preferred_slot(const Course& course, const Instructor& instructor, const TimeSlot& slot);
+    bool preferred_course(const Course& course, const Instructor& instructor, const TimeSlot& slot);
     bool not_occupied(const TimeSlot& slot);
     void schedule_course(int i, bool& solution_found);
-    
+    void create_map_with_instructor_avalabilities();
+
+    void two_soft_constraints_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course);
+    void preferred_course_soft_constraint_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course);
+    void preferred_slot_soft_constraint_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course);
+    void two_soft_constraints_not_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course);
+
     void serialize_courses(nlohmann::json& j);
     void serialize_instructors(nlohmann::json& j);
     void serialize_timeslots(nlohmann::json& j);
