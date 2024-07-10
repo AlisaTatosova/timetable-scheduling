@@ -16,7 +16,7 @@ class University {
 public:
     void add_course(const Course& course);
     void add_timeslot(const TimeSlot& time);
-    void add_instructor(Instructor& instructor);
+    void add_instructor(const Instructor& instructor);
     void schedule();
     void save_state(const std::string& filename);
     void load_state(const std::string& filename);

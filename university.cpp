@@ -8,7 +8,7 @@ void University::add_timeslot(const TimeSlot& time) {
     timeslots.push_back(time);
 }
 
-void University::add_instructor(Instructor& instructor) {
+void University::add_instructor(const Instructor& instructor) {
     instructors.push_back(instructor);
 }
 
@@ -23,7 +23,7 @@ void University::create_map_with_instructor_avalabilities() {
     }
 }
 
-bool University::preferred_course(const Course& course, const Instructor& instructor,const TimeSlot& slot) {
+bool University::preferred_course(const Course& course, const Instructor& instructor, const TimeSlot& slot) {
     if (!not_occupied(slot)) {
         return false;
     }
