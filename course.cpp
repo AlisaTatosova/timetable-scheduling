@@ -11,6 +11,10 @@ std::vector<TimeSlot> Course::get_preferred_slots() const {
     return preferred_timeslots;
 }
 
+bool Course::operator<(const Course& other) const {
+    return course_name < other.get_course_name();
+}
+
 bool Course::operator==(const Course& other) const {
     return course_name == other.course_name && preferred_timeslots == other.preferred_timeslots;
 }

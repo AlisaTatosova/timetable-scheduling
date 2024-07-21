@@ -10,6 +10,7 @@ public:
 
     std::string get_course_name() const;
     std::vector<TimeSlot> get_preferred_slots() const;
+    bool operator<(const Course& other) const;
     bool operator==(const Course& other) const;
     void display_info() const;
     

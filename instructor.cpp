@@ -15,6 +15,10 @@ std::vector<Course> Instructor::get_preferred_courses() const {
     return preferred_courses;
 }
 
+bool Instructor::operator==(const Instructor& other) const {
+    return instructor_name == other.instructor_name && availabilty == other.availabilty && preferred_courses == other.preferred_courses;
+}
+
 bool Instructor::operator<(const Instructor& other) const {
     if (availabilty.size() != other.availabilty.size()) {
         return availabilty.size() < other.availabilty.size();
@@ -22,6 +26,7 @@ bool Instructor::operator<(const Instructor& other) const {
     if (preferred_courses.size() != other.preferred_courses.size()) {
         return preferred_courses.size() < other.preferred_courses.size();
     }
+
     return instructor_name < other.instructor_name;
 }
 

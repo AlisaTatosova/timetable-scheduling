@@ -3,6 +3,7 @@
 #include "time_slot.h"
 #include "course.h"
 #include "instructor.h"
+#include "possible_combination.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,15 +23,18 @@ public:
     void load_state(const std::string& filename);
 
 private:
-    bool preferred_course(const Course& course, const Instructor& instructor, const TimeSlot& slot);
+    bool preferred_course(const std::vector<PossibleCombination>& possible, const PossibleCombination& possible_comb);
     bool not_occupied(const TimeSlot& slot);
-    void schedule_course(int i, bool& solution_found);
+    bool not_exist(const std::vector<PossibleCombination>& possible, const PossibleCombination& possible_comb);
+    void make_memo();
+    void schedule_course(int i, int& best);
     void create_map_with_instructor_avalabilities();
+    void found_best_solution(int& best);
 
-    void two_soft_constraints_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course);
-    void preferred_course_soft_constraint_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course);
-    void preferred_slot_soft_constraint_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course);
-    void two_soft_constraints_not_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course);
+    void two_soft_constraints_satisfy(std::vector<PossibleCombination>& possible, const Course& current_course);
+    void preferred_course_soft_constraint_satisfy(std::vector<PossibleCombination>& possible, const Course& current_course);
+    void preferred_slot_soft_constraint_satisfy(std::vector<PossibleCombination>& possible, const Course& current_course);
+    void two_soft_constraints_not_satisfy(std::vector<PossibleCombination>& possible, const Course& current_course);
 
     void serialize_courses(nlohmann::json& j);
     void serialize_instructors(nlohmann::json& j);
@@ -39,13 +43,15 @@ private:
     void deserialize_courses(nlohmann::json& j);
     void deserialize_instructors(nlohmann::json& j);
     void deserialize_timeslots(nlohmann::json& j);
-
+    
 private:
     std::vector<Instructor> instructors;
     std::vector<TimeSlot> timeslots;
     std::vector<Course> courses;
     std::map<TimeSlot, std::set<Instructor>> slots_with_available_instructors;
-    std::vector<std::tuple<Course, Instructor, TimeSlot>> timetable;
+    std::map<Course, std::vector<PossibleCombination>> memo;
+    std::pair<std::vector<PossibleCombination>, int> possible_timetable; 
+    std::vector<PossibleCombination> best_timetable;
 };
 
 #endif

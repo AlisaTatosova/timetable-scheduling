@@ -23,14 +23,15 @@ void University::create_map_with_instructor_avalabilities() {
     }
 }
 
-bool University::preferred_course(const Course& course, const Instructor& instructor, const TimeSlot& slot) {
-    if (!not_occupied(slot)) {
+bool University::preferred_course(const std::vector<PossibleCombination>& possible, const PossibleCombination& possible_comb) {
+    if (!not_exist(possible, possible_comb)) {
         return false;
     }
 
-    const auto& preferences = instructor.get_preferred_courses();
+    const auto& preferences = possible_comb.get_instructor().get_preferred_courses();
+    const auto& existing_course = possible_comb.get_course();
     for (const auto& pref_course : preferences) {
-        if (pref_course == course) {
+        if (pref_course == existing_course) {
             return true;
         }
     }
@@ -39,13 +40,13 @@ bool University::preferred_course(const Course& course, const Instructor& instru
 }
 
 bool University::not_occupied(const TimeSlot& slot) {
-    for (const auto& it : timetable) {
-        if (std::get<2>(it).get_day() == slot.get_day() &&
-            std::get<2>(it).get_start_time() == slot.get_start_time() &&
-            std::get<2>(it).get_end_time() == slot.get_end_time()) {
+    for (const auto& it : possible_timetable.first) {
+        if (it.get_slot().get_day() == slot.get_day() &&
+            it.get_slot().get_start_time() == slot.get_start_time() &&
+            it.get_slot().get_end_time() == slot.get_end_time()) {
             return false;
         }
-    } 
+    }
 
     return true;
 }
@@ -174,43 +175,62 @@ void University::load_state(const std::string& filename) {
     deserialize_timeslots(j);
 }
 
-void University::schedule() {
-    create_map_with_instructor_avalabilities();
-    bool solution_found = false;
-    schedule_course(0, solution_found);
-
-    for (const auto& it : timetable) {   
-        std::get<2>(it).display_info();
-        std::get<0>(it).display_info();
-        std::get<1>(it).display_info();
-        std::cout << std::endl;
-    }
-
-    if (!solution_found) {
-        std::cout << "No valid timetable can be made" << std::endl;
+void University::found_best_solution(int& best) {
+    if (possible_timetable.second > best) {
+        best_timetable.clear();
+        best = possible_timetable.second;
+        for (const auto& it : possible_timetable.first) {
+            best_timetable.push_back(it);
+        }
     }
 }
 
+void University::schedule() {
+    create_map_with_instructor_avalabilities();
+    int best = -1;
+    make_memo();
+    schedule_course(0, best);
+
+    for (const auto& it : best_timetable) { 
+        it.get_course().display_info();   
+        it.get_instructor().display_info();
+        it.get_slot().display_info();
+        std::cout << std::endl;
+    }
+}
+
+bool University::not_exist(const std::vector<PossibleCombination>& possible, const PossibleCombination& possible_comb) {
+    for (const auto& it : possible) {
+        if (it == possible_comb) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 // preferred course for instructor and preferred slot for course 
-void University::two_soft_constraints_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course) {
+void University::two_soft_constraints_satisfy(std::vector<PossibleCombination>& possible, const Course& current_course) {
     const auto& preferred_slots = current_course.get_preferred_slots(); 
     for (const auto& slot : preferred_slots) {
         for (const auto& instructor : slots_with_available_instructors[slot]) {
-            if (preferred_course(current_course, instructor, slot)) { 
-                possible.push_back(std::make_tuple(current_course, instructor, slot));   
+            PossibleCombination possible_comb(current_course, instructor, slot, 2);
+            if (preferred_course(possible, possible_comb)) { 
+                possible.push_back(possible_comb);  
             }
         }
     }
 }
 
 // preferred course for instructor, but not preferred slot for course 
-void University::preferred_course_soft_constraint_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course) {
+void University::preferred_course_soft_constraint_satisfy(std::vector<PossibleCombination>& possible, const Course& current_course) {
     const auto& preferred_slots = current_course.get_preferred_slots(); 
     for (const auto& slot : timeslots) {  
         if (!(std::find(preferred_slots.begin(), preferred_slots.end(), slot) != preferred_slots.end())) {
             for (const auto& instructor : slots_with_available_instructors[slot]) { 
-                if (preferred_course(current_course, instructor, slot)) { 
-                    possible.push_back(std::make_tuple(current_course, instructor, slot));     
+                PossibleCombination possible_comb(current_course, instructor, slot, 1);
+                if (preferred_course(possible, possible_comb)) { 
+                    possible.push_back(possible_comb); 
                 }
             }
         }
@@ -218,51 +238,60 @@ void University::preferred_course_soft_constraint_satisfy(std::vector<std::tuple
 }
 
 // not preferred course for instructor, but preferred slot for course 
-void University::preferred_slot_soft_constraint_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course) {
-    const auto& preferred_slots = current_course.get_preferred_slots(); 
+void University::preferred_slot_soft_constraint_satisfy(std::vector<PossibleCombination>& possible, const Course& current_course) {
+    const auto& preferred_slots = current_course.get_preferred_slots();
     for (const auto& slot : preferred_slots) {   
         for (const auto& instructor : slots_with_available_instructors[slot]) { 
-            if (not_occupied(slot)) { 
-                possible.push_back(std::make_tuple(current_course, instructor, slot));     
-            }
+            PossibleCombination possible_comb(current_course, instructor, slot, 1);
+            if (not_exist(possible, possible_comb)) { 
+                possible.push_back(possible_comb);     
+            }                   
         }   
     }
 }
 
 // not preferred course for instructor, not preferred slot for course (but some slot and course that exist)
-void University::two_soft_constraints_not_satisfy(std::vector<std::tuple<Course, Instructor, TimeSlot>>& possible, const Course& current_course) {
+void University::two_soft_constraints_not_satisfy(std::vector<PossibleCombination>& possible, const Course& current_course) {
     const auto& preferred_slots = current_course.get_preferred_slots(); 
     for (const auto& slot : timeslots) {
         if (!(std::find(preferred_slots.begin(), preferred_slots.end(), slot) != preferred_slots.end())) {
             for (const auto& instructor : slots_with_available_instructors[slot]) { 
-                if (not_occupied(slot)) { 
-                    possible.push_back(std::make_tuple(current_course, instructor, slot));     
-                }
+                PossibleCombination possible_comb(current_course, instructor, slot, 0);
+                if (not_exist(possible, possible_comb)) { 
+                    possible.push_back(possible_comb);     
+                }   
             }
         }
     }
 }
 
-void University::schedule_course(int i, bool& solution_found) { 
+void University::make_memo() { 
+    std::vector<PossibleCombination> possible;
+    for (const auto& current_course : courses) {
+        possible.clear();
+        two_soft_constraints_satisfy(possible, current_course); // preferred course for instructor and preferred slot for course 
+        preferred_course_soft_constraint_satisfy(possible, current_course); // preferred course for instructor, but not preferred slot for course 
+        preferred_slot_soft_constraint_satisfy(possible, current_course); // not preferred course for instructor, but preferred slot for course         
+        two_soft_constraints_not_satisfy(possible, current_course); // not preferred course for instructor, not preferred slot for course (but some slot and course that exist)
+        memo[current_course] = possible;
+    }
+}
+
+void University::schedule_course(int i, int& best) { 
+    Course& current_course = courses[i];
     if (i == courses.size()) {
-        solution_found = true;
+        found_best_solution(best);
         return;
     } 
-
-    Course& current_course = courses[i];
-    std::vector<std::tuple<Course, Instructor, TimeSlot>> possible;
-
-    two_soft_constraints_satisfy(possible, current_course); // preferred course for instructor and preferred slot for course 
-    preferred_course_soft_constraint_satisfy(possible, current_course); // preferred course for instructor, but not preferred slot for course 
-    preferred_slot_soft_constraint_satisfy(possible, current_course); // not preferred course for instructor, but preferred slot for course 
-    two_soft_constraints_not_satisfy(possible, current_course); // not preferred course for instructor, not preferred slot for course (but some slot and course that exist)
-    
-    for (const auto& current_course_possible_combination : possible) {  
-        timetable.push_back(current_course_possible_combination);
-        schedule_course(i + 1, solution_found);  
-        if (solution_found) {
-            return;
+     
+    for (const auto& current_course_possible_combination : memo[current_course]) { 
+        if (!not_occupied(current_course_possible_combination.get_slot())) { // checking that it doesnt be in possible_timetable
+            continue;
         }
-        timetable.pop_back();
+        possible_timetable.first.push_back(current_course_possible_combination);
+        possible_timetable.second += current_course_possible_combination.get_softs_preserved_count();
+        schedule_course(i + 1, best);   
+        possible_timetable.second -= possible_timetable.first.back().get_softs_preserved_count();
+        possible_timetable.first.pop_back(); 
     }
 }

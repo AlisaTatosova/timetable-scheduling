@@ -12,6 +12,7 @@ public:
     std::vector<TimeSlot> get_availabilty() const;
     std::string get_name() const;
     std::vector<Course> get_preferred_courses() const;
+    bool operator==(const Instructor& other) const;
     bool operator<(const Instructor& other) const;
     void display_info() const;
  
