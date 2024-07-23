@@ -3,7 +3,7 @@
 
 int main() {
     University university;
-    university.load_state("test1.json");
+    university.load_state("tests/test2.json");
     // for testing
     // university.load_state("test2.json");
     // university.load_state("test3.json");
