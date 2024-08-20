@@ -21,6 +21,10 @@ public:
     void schedule();
     void save_state(const std::string& filename);
     void load_state(const std::string& filename);
+    void print_timetable() const;
+    std::vector<TimeSlot> get_timeslots() const;
+    std::vector<Course> get_courses() const;
+    std::vector<Instructor> get_instructors() const;
 
 private:
     bool preferred_course(const std::vector<PossibleCombination>& possible, const PossibleCombination& possible_comb);
@@ -44,6 +48,9 @@ private:
     void deserialize_instructors(nlohmann::json& j);
     void deserialize_timeslots(nlohmann::json& j);
     
+public:
+    std::vector<PossibleCombination> best_timetable;
+
 private:
     std::vector<Instructor> instructors;
     std::vector<TimeSlot> timeslots;
@@ -51,7 +58,6 @@ private:
     std::map<TimeSlot, std::set<Instructor>> slots_with_available_instructors;
     std::map<Course, std::vector<PossibleCombination>> memo;
     std::pair<std::vector<PossibleCombination>, int> possible_timetable; 
-    std::vector<PossibleCombination> best_timetable;
 };
 
 #endif

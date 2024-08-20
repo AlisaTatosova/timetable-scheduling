@@ -1,72 +1,42 @@
 {
     "courses": [
         {
-            "course_name": "Math",
-            "preferred_slots": [
-                {
-                    "day": "MONDAY",
-                    "end_time": "10:00",
-                    "start_time": "09:00"
-                },
-                {
-                    "day": "MONDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
-                }
-            ]
-        },
-        {
-            "course_name": "Programming",
-            "preferred_slots": [
-                {
-                    "day": "MONDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
-                }
-            ]
-        },
-        {
-            "course_name": "English",
-            "preferred_slots": [
-                {
-                    "day": "WEDNESDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
-                }
-            ]
-        },
-        {
             "course_name": "History",
             "preferred_slots": [
                 {
-                    "day": "MONDAY",
-                    "end_time": "10:00",
-                    "start_time": "09:00"
-                },
-                {
-                    "day": "TUESDAY",
-                    "end_time": "10:00",
+                    "day": "Tuesday",
+                    "end_time": "10:35",
                     "start_time": "09:00"
                 }
             ]
         },
         {
-            "course_name": "Spanish",
+            "course_name": "Philosophy",
             "preferred_slots": [
                 {
-                    "day": "WEDNESDAY",
-                    "end_time": "14:00",
-                    "start_time": "13:00"
+                    "day": "Tuesday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
                 }
             ]
         },
         {
-            "course_name": "Calculus",
+            "course_name": "Economics",
             "preferred_slots": [
                 {
-                    "day": "MONDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
+                    "day": "Tuesday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                }
+            ]
+        },
+        {
+            "course_name": "Psychology",
+            "preferred_slots": [
+                {
+                    "day": "Tuesday",
+                    "end_time": "16:05",
+                    "start_time": "14:35"
                 }
             ]
         }
@@ -75,45 +45,20 @@
         {
             "availability": [
                 {
-                    "day": "MONDAY",
-                    "end_time": "10:00",
+                    "day": "Tuesday",
+                    "end_time": "10:35",
                     "start_time": "09:00"
-                },
-                {
-                    "day": "MONDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
-                },
-                {
-                    "day": "FRIDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
                 }
             ],
-            "name": "Alisa",
+            "name": "Dr. Adams",
             "preferred_courses": [
                 {
                     "course_name": "History",
                     "preferred_slots": [
                         {
-                            "day": "MONDAY",
-                            "end_time": "10:00",
+                            "day": "Tuesday",
+                            "end_time": "10:35",
                             "start_time": "09:00"
-                        },
-                        {
-                            "day": "TUESDAY",
-                            "end_time": "10:00",
-                            "start_time": "09:00"
-                        }
-                    ]
-                },
-                {
-                    "course_name": "Programming",
-                    "preferred_slots": [
-                        {
-                            "day": "MONDAY",
-                            "end_time": "12:00",
-                            "start_time": "11:00"
                         }
                     ]
                 }
@@ -122,30 +67,20 @@
         {
             "availability": [
                 {
-                    "day": "TUESDAY",
-                    "end_time": "10:00",
-                    "start_time": "09:00"
-                },
-                {
-                    "day": "WEDNESDAY",
-                    "end_time": "14:00",
-                    "start_time": "13:00"
+                    "day": "Tuesday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
                 }
             ],
-            "name": "David",
+            "name": "Dr. Baker",
             "preferred_courses": [
                 {
-                    "course_name": "Math",
+                    "course_name": "Philosophy",
                     "preferred_slots": [
                         {
-                            "day": "MONDAY",
-                            "end_time": "10:00",
-                            "start_time": "09:00"
-                        },
-                        {
-                            "day": "MONDAY",
-                            "end_time": "12:00",
-                            "start_time": "11:00"
+                            "day": "Tuesday",
+                            "end_time": "12:20",
+                            "start_time": "10:45"
                         }
                     ]
                 }
@@ -154,35 +89,42 @@
         {
             "availability": [
                 {
-                    "day": "MONDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
-                },
-                {
-                    "day": "WEDNESDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
-                },
-                {
-                    "day": "WEDNESDAY",
-                    "end_time": "13:00",
-                    "start_time": "12:00"
+                    "day": "Tuesday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
                 }
             ],
-            "name": "Anna",
+            "name": "Dr. Carter",
             "preferred_courses": [
                 {
-                    "course_name": "Math",
+                    "course_name": "Economics",
                     "preferred_slots": [
                         {
-                            "day": "MONDAY",
-                            "end_time": "10:00",
-                            "start_time": "09:00"
-                        },
+                            "day": "Tuesday",
+                            "end_time": "14:20",
+                            "start_time": "12:50"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "availability": [
+                {
+                    "day": "Tuesday",
+                    "end_time": "16:05",
+                    "start_time": "14:35"
+                }
+            ],
+            "name": "Dr. Davis",
+            "preferred_courses": [
+                {
+                    "course_name": "Psychology",
+                    "preferred_slots": [
                         {
-                            "day": "MONDAY",
-                            "end_time": "12:00",
-                            "start_time": "11:00"
+                            "day": "Tuesday",
+                            "end_time": "16:05",
+                            "start_time": "14:35"
                         }
                     ]
                 }
@@ -191,39 +133,24 @@
     ],
     "timeslots": [
         {
-            "day": "MONDAY",
-            "end_time": "10:00",
+            "day": "Tuesday",
+            "end_time": "10:35",
             "start_time": "09:00"
         },
         {
-            "day": "MONDAY",
-            "end_time": "12:00",
-            "start_time": "11:00"
+            "day": "Tuesday",
+            "end_time": "12:20",
+            "start_time": "10:45"
         },
         {
-            "day": "TUESDAY",
-            "end_time": "10:00",
-            "start_time": "09:00"
+            "day": "Tuesday",
+            "end_time": "14:20",
+            "start_time": "12:50"
         },
         {
-            "day": "WEDNESDAY",
-            "end_time": "12:00",
-            "start_time": "11:00"
-        },
-        {
-            "day": "WEDNESDAY",
-            "end_time": "13:00",
-            "start_time": "12:00"
-        },
-        {
-            "day": "WEDNESDAY",
-            "end_time": "14:00",
-            "start_time": "13:00"
-        },
-        {
-            "day": "FRIDAY",
-            "end_time": "12:00",
-            "start_time": "11:00"
+            "day": "Tuesday",
+            "end_time": "16:05",
+            "start_time": "14:35"
         }
     ]
 }

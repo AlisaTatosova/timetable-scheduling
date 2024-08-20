@@ -1,31 +1,31 @@
 {
     "courses": [
         {
-            "course_name": "Math",
+            "course_name": "History",
             "preferred_slots": [
                 {
-                    "day": "MONDAY",
-                    "end_time": "10:00",
+                    "day": "Monday",
+                    "end_time": "10:35",
                     "start_time": "09:00"
                 }
             ]
         },
         {
-            "course_name": "Programming",
+            "course_name": "Data Science",
             "preferred_slots": [
                 {
-                    "day": "MONDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
+                    "day": "Monday",
+                    "end_time": "12:25",
+                    "start_time": "10:45"
                 }
             ]
         },
         {
-            "course_name": "English",
+            "course_name": "Literature",
             "preferred_slots": [
                 {
-                    "day": "TUESDAY",
-                    "end_time": "10:00",
+                    "day": "Tuesday",
+                    "end_time": "10:35",
                     "start_time": "09:00"
                 }
             ]
@@ -35,30 +35,25 @@
         {
             "availability": [
                 {
-                    "day": "MONDAY",
-                    "end_time": "10:00",
+                    "day": "Monday",
+                    "end_time": "10:35",
                     "start_time": "09:00"
-                }
-            ],
-            "name": "Alisa",
-            "preferred_courses": [
-                {
-                    "course_name": "Math",
-                    "preferred_slots": [
-                        {
-                            "day": "MONDAY",
-                            "end_time": "10:00",
-                            "start_time": "09:00"
-                        }
-                    ]
                 },
                 {
-                    "course_name": "Programming",
+                    "day": "Monday",
+                    "end_time": "12:25",
+                    "start_time": "10:45"
+                }
+            ],
+            "name": "John Doe",
+            "preferred_courses": [
+                {
+                    "course_name": "Data Science",
                     "preferred_slots": [
                         {
-                            "day": "MONDAY",
-                            "end_time": "12:00",
-                            "start_time": "11:00"
+                            "day": "Monday",
+                            "end_time": "12:25",
+                            "start_time": "10:45"
                         }
                     ]
                 }
@@ -67,29 +62,34 @@
         {
             "availability": [
                 {
-                    "day": "MONDAY",
-                    "end_time": "12:00",
-                    "start_time": "11:00"
+                    "day": "Monday",
+                    "end_time": "12:25",
+                    "start_time": "10:45"
+                },
+                {
+                    "day": "Tuesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
                 }
             ],
-            "name": "David",
+            "name": "Jane Smith",
             "preferred_courses": [
                 {
-                    "course_name": "Math",
+                    "course_name": "History",
                     "preferred_slots": [
                         {
-                            "day": "MONDAY",
-                            "end_time": "10:00",
+                            "day": "Monday",
+                            "end_time": "10:35",
                             "start_time": "09:00"
                         }
                     ]
                 },
                 {
-                    "course_name": "English",
+                    "course_name": "Literature",
                     "preferred_slots": [
                         {
-                            "day": "TUESDAY",
-                            "end_time": "10:00",
+                            "day": "Tuesday",
+                            "end_time": "10:35",
                             "start_time": "09:00"
                         }
                     ]
@@ -99,19 +99,19 @@
         {
             "availability": [
                 {
-                    "day": "TUESDAY",
-                    "end_time": "10:00",
+                    "day": "Tuesday",
+                    "end_time": "10:35",
                     "start_time": "09:00"
                 }
             ],
-            "name": "Anna",
+            "name": "Emily Brown",
             "preferred_courses": [
                 {
-                    "course_name": "Math",
+                    "course_name": "History",
                     "preferred_slots": [
                         {
-                            "day": "MONDAY",
-                            "end_time": "10:00",
+                            "day": "Monday",
+                            "end_time": "10:35",
                             "start_time": "09:00"
                         }
                     ]
@@ -121,39 +121,39 @@
     ],
     "timeslots": [
         {
-            "day": "MONDAY",
-            "end_time": "10:00",
+            "day": "Monday",
+            "end_time": "10:35",
             "start_time": "09:00"
         },
         {
-            "day": "MONDAY",
-            "end_time": "12:00",
-            "start_time": "11:00"
+            "day": "Monday",
+            "end_time": "12:25",
+            "start_time": "10:45"
         },
         {
-            "day": "TUESDAY",
-            "end_time": "10:00",
+            "day": "Tuesday",
+            "end_time": "10:35",
             "start_time": "09:00"
         },
         {
-            "day": "WEDNESDAY",
-            "end_time": "12:00",
-            "start_time": "11:00"
+            "day": "Wednesday",
+            "end_time": "12:25",
+            "start_time": "10:45"
         },
         {
-            "day": "WEDNESDAY",
-            "end_time": "13:00",
-            "start_time": "12:00"
+            "day": "Wednesday",
+            "end_time": "14:20",
+            "start_time": "12:25"
         },
         {
-            "day": "THURSDAY",
-            "end_time": "10:00",
+            "day": "Thursday",
+            "end_time": "10:35",
             "start_time": "09:00"
         },
         {
-            "day": "FRIDAY",
-            "end_time": "12:00",
-            "start_time": "11:00"
+            "day": "Friday",
+            "end_time": "12:25",
+            "start_time": "10:45"
         }
     ]
 }

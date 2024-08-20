@@ -12,6 +12,18 @@ void University::add_instructor(const Instructor& instructor) {
     instructors.push_back(instructor);
 }
 
+std::vector<TimeSlot> University::get_timeslots() const {
+    return timeslots;
+}
+
+std::vector<Course> University::get_courses() const {
+    return courses;
+}
+
+std::vector<Instructor> University::get_instructors() const {
+    return instructors;
+}
+
 void University::create_map_with_instructor_avalabilities() {
     for (const auto& instructor : instructors) {
         const auto& availabilities_of_instructor = instructor.get_availabilty();
@@ -190,10 +202,20 @@ void University::schedule() {
     int best = -1;
     make_memo();
     schedule_course(0, best);
+}
 
-    for (const auto& it : best_timetable) { 
-        it.get_course().display_info();   
+void University::print_timetable() const {
+    std::cout << "Timetable" << std::endl;
+    if (!best_timetable.size()) {
+        std::cout << "There is no way for valid scheduling" << std::endl;
+        return;
+    }
+
+    for (const auto& it : best_timetable) {
+        it.get_course().display_info();
+        std::cout << "- ";
         it.get_instructor().display_info();
+        std::cout << "- ";
         it.get_slot().display_info();
         std::cout << std::endl;
     }

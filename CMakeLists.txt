@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(timetable_scheduling)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(SOURCES
@@ -11,10 +11,18 @@ set(SOURCES
     possible_combination.cpp
     time_slot.cpp
     university.cpp
-    main.cpp
 )
 
-add_executable(timetable_scheduling ${SOURCES})
+add_library(scheduling_lib STATIC ${SOURCES})
+
+add_executable(timetable_scheduling main.cpp)
+target_link_libraries(timetable_scheduling scheduling_lib)
+
+add_subdirectory(lib/googletest)
+include_directories(lib/googletest/googletest/include)
+
+add_executable(run_tests tests/test_university.cpp)
+target_link_libraries(run_tests scheduling_lib gtest gtest_main)
 
 set(TESTS
     test1.json
