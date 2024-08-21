@@ -25,6 +25,7 @@ Here you can find test1.json - test5.json files in which are included tests, for
     ```sh
     git clone https://github.com/AlisaTatosova/timetable-scheduling.git
     cd timetable-scheduling
+    git submodule update --init --recursive
     ```
 
 2. **Create a build directory**:
@@ -43,12 +44,19 @@ Here you can find test1.json - test5.json files in which are included tests, for
     cmake --build .
     ```
 
-This will compile the source files and create an executable named `timetable_scheduling`.
+This will compile the source files and create an executable named `timetable_scheduling` and `run_tests`.
 
 ## Run the Program
+
+To run the tests, execute the following command from the `build` directory:
+
+```sh
+./run_tests
+```
 
 To run the program, execute the following command from the `build` directory:
 
 ```sh
 ./timetable_scheduling
+```
 
