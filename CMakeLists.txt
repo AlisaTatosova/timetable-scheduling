@@ -30,6 +30,11 @@ set(TESTS
     test3.json
     test4.json
     test5.json
+    test6.json
+    test7.json
+    test8.json
+    test9.json
+    test10.json
 )
 
 foreach(file ${TESTS})

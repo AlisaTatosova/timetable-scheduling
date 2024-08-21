@@ -1,0 +1,209 @@
+{
+    "courses": [
+        {
+            "course_name": "Physics",
+            "preferred_slots": [
+                {
+                    "day": "Wednesday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                },
+                {
+                    "day": "Friday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "Chemistry",
+            "preferred_slots": [
+                {
+                    "day": "Wednesday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
+                },
+                {
+                    "day": "Wednesday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                }
+            ]
+        },
+        {
+            "course_name": "Biology",
+            "preferred_slots": [
+                {
+                    "day": "Wednesday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                },
+                {
+                    "day": "Wednesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "History",
+            "preferred_slots": [
+                {
+                    "day": "Monday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                },
+                {
+                    "day": "Wednesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                }
+            ]
+        }
+    ],
+    "instructors": [
+        {
+            "availability": [
+                {
+                    "day": "Monday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                },
+                {
+                    "day": "Wednesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "Wednesday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
+                }
+            ],
+            "name": "Dr. Smith",
+            "preferred_courses": [
+                {
+                    "course_name": "Physics",
+                    "preferred_slots": [
+                        {
+                            "day": "Wednesday",
+                            "end_time": "14:20",
+                            "start_time": "12:50"
+                        },
+                        {
+                            "day": "Friday",
+                            "end_time": "10:35",
+                            "start_time": "09:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "availability": [
+                {
+                    "day": "Wednesday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                },
+                {
+                    "day": "Friday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                }
+            ],
+            "name": "Dr. Johnson",
+            "preferred_courses": [
+                {
+                    "course_name": "Chemistry",
+                    "preferred_slots": [
+                        {
+                            "day": "Wednesday",
+                            "end_time": "12:20",
+                            "start_time": "10:45"
+                        },
+                        {
+                            "day": "Wednesday",
+                            "end_time": "14:20",
+                            "start_time": "12:50"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "availability": [
+                {
+                    "day": "Monday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                },
+                {
+                    "day": "Wednesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                }
+            ],
+            "name": "Dr. Lee",
+            "preferred_courses": [
+                {
+                    "course_name": "Biology",
+                    "preferred_slots": [
+                        {
+                            "day": "Wednesday",
+                            "end_time": "14:20",
+                            "start_time": "12:50"
+                        },
+                        {
+                            "day": "Wednesday",
+                            "end_time": "10:35",
+                            "start_time": "09:00"
+                        }
+                    ]
+                },
+                {
+                    "course_name": "History",
+                    "preferred_slots": [
+                        {
+                            "day": "Monday",
+                            "end_time": "14:20",
+                            "start_time": "12:50"
+                        },
+                        {
+                            "day": "Wednesday",
+                            "end_time": "10:35",
+                            "start_time": "09:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "timeslots": [
+        {
+            "day": "Monday",
+            "end_time": "14:20",
+            "start_time": "12:50"
+        },
+        {
+            "day": "Wednesday",
+            "end_time": "10:35",
+            "start_time": "09:00"
+        },
+        {
+            "day": "Wednesday",
+            "end_time": "12:20",
+            "start_time": "10:45"
+        },
+        {
+            "day": "Wednesday",
+            "end_time": "14:20",
+            "start_time": "12:50"
+        },
+        {
+            "day": "Friday",
+            "end_time": "10:35",
+            "start_time": "09:00"
+        }
+    ]
+}

@@ -75,7 +75,12 @@ INSTANTIATE_TEST_SUITE_P(
         "tests/test2.json",
         "tests/test3.json",
         "tests/test4.json",
-        "tests/test5.json"
+        "tests/test5.json",
+        "tests/test6.json",
+        "tests/test7.json",
+        "tests/test8.json",
+        "tests/test9.json",
+        "tests/test10.json"
     )
 );
 

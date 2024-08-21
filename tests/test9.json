@@ -1,0 +1,244 @@
+{
+    "courses": [
+        {
+            "course_name": "Art History",
+            "preferred_slots": [
+                {
+                    "day": "Monday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "Philosophy",
+            "preferred_slots": [
+                {
+                    "day": "Monday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
+                }
+            ]
+        },
+        {
+            "course_name": "Mathematics",
+            "preferred_slots": [
+                {
+                    "day": "Monday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "Monday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                }
+            ]
+        },
+        {
+            "course_name": "Biology",
+            "preferred_slots": [
+                {
+                    "day": "Tuesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "Economics",
+            "preferred_slots": [
+                {
+                    "day": "Tuesday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                }
+            ]
+        },
+        {
+            "course_name": "Computer Science",
+            "preferred_slots": [
+                {
+                    "day": "Wednesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "Monday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
+                }
+            ]
+        },
+        {
+            "course_name": "Chemistry",
+            "preferred_slots": [
+                {
+                    "day": "Wednesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                }
+            ]
+        },
+        {
+            "course_name": "Statistics",
+            "preferred_slots": [
+                {
+                    "day": "Wednesday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                }
+            ]
+        }
+    ],
+    "instructors": [
+        {
+            "availability": [
+                {
+                    "day": "Monday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "Monday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
+                },
+                {
+                    "day": "Monday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                }
+            ],
+            "name": "Dr. Lee",
+            "preferred_courses": [
+                {
+                    "course_name": "Art History",
+                    "preferred_slots": [
+                        {
+                            "day": "Monday",
+                            "end_time": "10:35",
+                            "start_time": "09:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "availability": [
+                {
+                    "day": "Monday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
+                },
+                {
+                    "day": "Monday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                },
+                {
+                    "day": "Friday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
+                }
+            ],
+            "name": "Dr. Anderson",
+            "preferred_courses": [
+                {
+                    "course_name": "Mathematics",
+                    "preferred_slots": [
+                        {
+                            "day": "Monday",
+                            "end_time": "10:35",
+                            "start_time": "09:00"
+                        },
+                        {
+                            "day": "Monday",
+                            "end_time": "14:20",
+                            "start_time": "12:50"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "availability": [
+                {
+                    "day": "Wednesday",
+                    "end_time": "10:35",
+                    "start_time": "09:00"
+                },
+                {
+                    "day": "Monday",
+                    "end_time": "12:20",
+                    "start_time": "10:45"
+                },
+                {
+                    "day": "Friday",
+                    "end_time": "14:20",
+                    "start_time": "12:50"
+                }
+            ],
+            "name": "Dr. Winchester",
+            "preferred_courses": [
+                {
+                    "course_name": "Computer Science",
+                    "preferred_slots": [
+                        {
+                            "day": "Wednesday",
+                            "end_time": "10:35",
+                            "start_time": "09:00"
+                        },
+                        {
+                            "day": "Monday",
+                            "end_time": "12:20",
+                            "start_time": "10:45"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "timeslots": [
+        {
+            "day": "Monday",
+            "end_time": "10:35",
+            "start_time": "09:00"
+        },
+        {
+            "day": "Monday",
+            "end_time": "12:20",
+            "start_time": "10:45"
+        },
+        {
+            "day": "Monday",
+            "end_time": "14:20",
+            "start_time": "12:50"
+        },
+        {
+            "day": "Tuesday",
+            "end_time": "10:35",
+            "start_time": "09:00"
+        },
+        {
+            "day": "Tuesday",
+            "end_time": "14:20",
+            "start_time": "12:50"
+        },
+        {
+            "day": "Wednesday",
+            "end_time": "10:35",
+            "start_time": "09:00"
+        },
+        {
+            "day": "Wednesday",
+            "end_time": "12:20",
+            "start_time": "10:45"
+        },
+        {
+            "day": "Wednesday",
+            "end_time": "14:20",
+            "start_time": "12:50"
+        }
+    ]
+}
