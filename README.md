@@ -15,10 +15,6 @@ Instructors should be assigned to their preferred courses if possible
 
 Firstly, I have done memorization, keeping for each course corresponding possible combination of Course, Instructor, Timeslot, and also score(which in this case is the quantity of soft constraints to satisfy).Then having that, I am trying to collect possile timetable, also preserving the current score for it.And then try other possible combinations and get one with best score.
 
-# Tests
-
-Here you can find test1.json - test5.json files in which are included tests, for testing just load them with function load_state(filename.json).
-
 ## Build Instructions
 
 1. **Clone the repository**:
