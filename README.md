@@ -56,3 +56,318 @@ To run the program, execute the following command from the `build` directory:
 ./timetable_scheduling
 ```
 
+## Tests
+
+### test1.json
+
+#### Time Slots
+The available time slots for courses are as follows:
+- **Monday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+  - 12:50 - 14:20
+- **Tuesday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+  - 12:50 - 14:20
+- **Wednesday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+- **Thursday:**
+  - 09:00 - 10:35
+
+#### Courses
+The courses and their preferred time slots are listed below:
+- **Math:** Monday 09:00 - 10:35, Monday 10:45 - 12:20
+- **Physics:** Tuesday 09:00 - 10:35, Tuesday 10:45 - 12:20
+- **Chemistry:** Monday 12:50 - 14:20, Tuesday 12:50 - 14:20
+- **Biology:** Wednesday 09:00 - 10:35
+- **Computer Science:** Wednesday 10:45 - 12:20
+- **History:** Thursday 09:00 - 10:35
+- **Philosophy:** Monday 09:00 - 10:35, Wednesday 09:00 - 10:35
+
+#### Instructors
+Instructors and their availability, along with preferred courses:
+- **Dr. Smith:**
+  - Available: Monday 09:00 - 10:35
+  - Preferred Course: Math
+- **Dr. Johnson:**
+  - Available: Tuesday 09:00 - 10:35
+  - Preferred Course: Physics
+- **Dr. Lee:**
+  - Available: Monday 12:50 - 14:20, Tuesday 12:50 - 14:20
+  - Preferred Course: Computer Science
+- **Dr. Brown:**
+  - Available: Monday 12:50 - 14:20, Wednesday 09:00 - 10:35
+  - Preferred Courses: Biology, Philosophy, Chemistry
+- **Dr. Martinez:**
+  - Available: Monday 10:45 - 12:20
+  - Preferred Course: Computer Science
+- **Dr. Allen:**
+  - Available: Thursday 09:00 - 10:35
+  - Preferred Course: History
+
+### test2.json
+
+#### Time Slots
+The available time slots for courses are as follows:
+- **Tuesday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+  - 12:50 - 14:20
+  - 14:35 - 16:05
+
+#### Courses
+The courses and their preferred time slots are listed below:
+- **History:** Tuesday 09:00 - 10:35
+- **Philosophy:** Tuesday 10:45 - 12:20
+- **Economics:** Tuesday 12:50 - 14:20
+- **Psychology:** Tuesday 14:35 - 16:05
+
+#### Instructors
+Instructors and their availability, along with preferred courses:
+- **Dr. Adams:**
+  - Available: Tuesday 09:00 - 10:35
+  - Preferred Course: History
+- **Dr. Baker:**
+  - Available: Tuesday 10:45 - 12:20
+  - Preferred Course: Philosophy
+- **Dr. Carter:**
+  - Available: Monday Tuesday 12:50 - 14:20
+  - Preferred Course: Economics Science
+- **Dr. Davis:**
+  - Available: Tuesday 14:35 - 16:05
+  - Preferred Courses: Psychology
+
+### test3.json
+
+#### Time Slots
+The available time slots for courses are as follows:
+- **Monday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+- **Tuesday:**
+  - 12:50 - 14:20
+- **Wednesday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+- **Thursday:**
+  - 12:50 - 14:20
+- **Friday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+
+#### Courses
+The courses and their preferred time slots are listed below:
+- **Art History:** Monday 09:00 - 10:35, Wednesday 10:45 - 12:20
+- **Philosophy:** Monday 10:45 - 12:20
+- **Mathematics:** Tuesday 12:50 - 14:20
+- **Biology:** Wednesday 09:00 - 10:35
+- **Economics:** Wednesday 10:45 - 12:20
+- **Computer Science:** Thursday 12:50 - 14:20, Monday 10:45 - 12:20
+- **Chemistry:** Friday 09:00 - 10:35
+- **Statistics:** Friday 10:45 - 12:20
+
+#### Instructors
+Instructors and their availability, along with preferred courses:
+- **Dr. Smith:**
+  - Available: Monday 09:00 - 10:35, Monday 10:45 - 12:20, Tuesday 12:50 - 14:20, Friday 09:00 - 10:35
+  - Preferred Course: Art History
+- **Dr. Johnson:**
+  - Available: Wednesday 09:00 - 10:35, Wednesday 10:45 - 12:20, Thursday 12:50 - 14:20
+  - Preferred Courses: Mathematics, Biology, Economics
+- **Dr. Lee:**
+  - Available: Friday 09:00 - 10:35, Friday 10:45 - 12:20, Thursday 12:50 - 14:20
+  - Preferred Courses: Computer Science, Chemistry, Statistics
+
+### test4.json
+
+#### Time Slots
+The available time slots for courses are as follows:
+- **Monday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:25
+- **Tuesday:**
+  - 09:00 - 10:35
+- **Wednesday:**
+  - 10:45 - 12:25
+  - 12:25 - 14:20
+- **Thursday:**
+  - 09:00 - 10:35
+- **Friday:**
+  - 10:45 - 12:25
+
+#### Courses
+The courses and their preferred time slots are listed below:
+- **History:** Monday 09:00 - 10:35
+- **Data Science:** Monday 10:45 - 12:25
+- **Literature:** Tuesday 09:00 - 10:35
+
+#### Instructors
+Instructors and their availability, along with preferred courses:
+- **John Doe:**
+  - Available: Monday 09:00 - 10:35, Monday 10:45 - 12:25
+  - Preferred Course: Data Science
+- **Jane Smith:**
+  - Available: Monday 10:45 - 12:25, Tuesday 09:00 - 10:35
+  - Preferred Courses: History, Literature
+- **Emily Brown:**
+  - Available: Tuesday 09:00 - 10:35
+  - Preferred Course: History
+
+### test5.json
+
+#### Time Slots
+The available time slots for courses are as follows:
+- **Monday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+  - 12:50 - 14:20
+- **Wednesday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+  - 12:50 - 14:20
+- **Friday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+  - 12:50 - 14:20
+
+#### Courses
+The courses and their preferred time slots are listed below:
+- **Math:** Monday 09:00 - 10:35, Monday 10:45 - 12:20
+- **Physics:** Wednesday 09:00 - 10:35, Wednesday 10:45 - 12:20
+- **Chemistry:** Monday 12:50 - 14:20, Wednesday 12:50 - 14:20
+- **Biology:** Friday 09:00 - 10:35, Friday 10:45 - 12:20
+- **History:** Friday 12:50 - 14:20, Monday 09:00 - 10:35
+
+#### Instructors
+Instructors and their availability, along with preferred courses:
+- **Dr. Smith:**
+  - Available: Monday 09:00 - 10:35, Monday 10:45 - 12:20, Friday 09:00 - 10:35
+  - Preferred Courses: Math, History
+- **Dr. Johnson:**
+  - Available: Wednesday 09:00 - 10:35, Wednesday 10:45 - 12:20, Friday 12:50 - 14:20
+  - Preferred Course: Physics
+- **Dr. Lee:**
+  - Available: Monday 12:50 - 14:20, Wednesday 12:50 - 14:20
+  - Preferred Course: Chemistry
+- **Dr. Brown:**
+  - Available: Friday 10:45 - 12:20
+  - Preferred Course: Biology
+- **Dr. Davis:**
+  - Available: Friday 09:00 - 10:35, Friday 10:45 - 12:20, Friday 12:50 - 14:20
+  - Preferred Courses: Math, Biology
+
+### test6.json
+
+#### Time Slots
+The available time slots for courses are as follows:
+- **Monday:**
+  - 12:50 - 14:20
+- **Wednesday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+  - 12:50 - 14:20
+- **Friday:**
+  - 09:00 - 10:35
+
+#### Courses
+The courses and their preferred time slots are listed below:
+- **Physics:** Wednesday 12:50 - 14:20, Friday 09:00 - 10:35
+- **Chemistry:** Wednesday 10:45 - 12:20, Wednesday 12:50 - 14:20
+- **Biology:** Wednesday 12:50 - 14:20, Wednesday 09:00 - 10:35
+- **History:** Monday 12:50 - 14:20, Wednesday 09:00 - 10:35
+
+#### Instructors
+Instructors and their availability, along with preferred courses:
+- **Dr. Smith:**
+  - Available: Monday 12:50 - 14:20, Wednesday 09:00 - 10:35, Wednesday 10:45 - 12:20
+  - Preferred Course: Physics
+- **Dr. Johnson:**
+  - Available: Wednesday 12:50 - 14:20, Friday 09:00 - 10:35
+  - Preferred Course: Chemistry
+- **Dr. Lee:**
+  - Available: Monday 12:50 - 14:20, Wednesday 09:00 - 10:35
+  - Preferred Courses: Biology, History
+
+### test7.json
+
+#### Time Slots
+The available time slots for courses are as follows:
+- **Monday:**
+  - 10:45 - 12:20
+- **Tuesday:**
+  - 09:00 - 10:35
+- **Wednesday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+- **Thursday:**
+  - 09:00 - 10:35
+- **Friday:**
+  - 09:00 - 10:35
+
+#### Courses
+The courses and their preferred time slots are listed below:
+- **Computer Science:** Monday 10:45 - 12:20, Tuesday 09:00 - 10:35
+- **Physics:** Wednesday 10:45 - 12:20, Thursday 09:00 - 10:35
+- **Philosophy:** Wednesday 09:00 - 10:35, Friday 09:00 - 10:35
+- **Biology:** Friday 09:00 - 10:35
+- **Computer Science:** Monday 10:45 - 12:20
+- **History:** Tuesday 09:00 - 10:35
+
+#### Instructors
+Instructors and their availability, along with preferred courses:
+- **Dr. Brown:**
+  - Available: Tuesday 09:00 - 10:35
+  - Preferred Courses: Philosophy, Biology
+- **Dr. Martinez:**
+  - Available: Tuesday 09:00 - 10:35, Friday 09:00 - 10:35
+  - Preferred Courses: Computer Science, History
+- **Dr. Allen:**
+  - Available: Wednesday 09:00 - 10:35, Wednesday 10:45 - 12:20, Thursday 09:00 - 10:35
+  - Preferred Courses: Computer Science, Physics
+
+### test8.json
+
+#### Time Slots
+The available time slots for courses are as follows:
+- **Monday:**
+  - 10:45 - 12:20
+- **Tuesday:**
+  - 09:00 - 10:35
+- **Wednesday:**
+  - 09:00 - 10:35
+  - 10:45 - 12:20
+- **Thursday:**
+  - 09:00 - 10:35
+- **Friday:**
+  - 09:00 - 10:35
+
+#### Courses
+The courses and their preferred time slots are listed below:
+- **Computer Science:** Monday 10:45 - 12:20, Tuesday 09:00 - 10:35
+- **Physics:** Wednesday 10:45 - 12:20, Thursday 09:00 - 10:35
+- **Philosophy:** Wednesday 09:00 - 10:35, Friday 09:00 - 10:35
+- **Biology:** Friday 09:00 - 10:35
+
+#### Instructors
+Instructors and their availability, along with preferred courses:
+- **Dr. Brown:**
+  - Available: Tuesday 09:00 - 10:35
+  - Preferred Courses: Philosophy, Biology
+- **Dr. Martinez:**
+  - Available: Tuesday 09:00 - 10:35, Friday 09:00 - 10:35
+  - Preferred Courses: Physics
+- **Dr. Allen:**
+  - Available: Wednesday 09:00 - 10:35, Wednesday 10:45 - 12:20, Thursday 09:00 - 10:35
+  - Preferred Courses: Computer Science, Physics
+
+
+
+
+
+
+
+
+
+
