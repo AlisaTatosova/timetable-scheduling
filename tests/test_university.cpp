@@ -28,8 +28,8 @@ TEST_P(UniversityTest, InstructorsAvailabilityCheck) {
     for (const auto& it : university.best_timetable) {
         auto available_slots = it.get_instructor().get_availabilty();
         auto slot = it.get_slot();
-        EXPECT_TRUE(std::find(available_slots.begin(), available_slots.end(), slot) != available_slots.end())
-            << "Instructor is not available for the selected slot.";
+        auto slot_found = std::find(available_slots.begin(), available_slots.end(), slot);
+        EXPECT_NE(slot_found, available_slots.end()) << "Instructor is not available for the selected slot.";
     }
 }
 
@@ -38,8 +38,8 @@ TEST_P(UniversityTest, AvaiableTimeSlot) {
     auto slots = university.get_timeslots();
     for (const auto& it : university.best_timetable) {
         auto slot = it.get_slot();
-        EXPECT_TRUE(std::find(slots.begin(), slots.end(), slot) != slots.end())
-            << "Timeslot is not available for University.";
+        auto slot_found = std::find(slots.begin(), slots.end(), slot);
+        EXPECT_NE(slot_found, slots.end()) << "Timeslot is not available for University.";
     }
 }
 
@@ -55,15 +55,17 @@ TEST_P(UniversityTest, NoDuplicateSlots) {
 
 // Testing if all courses are scheduled
 TEST_P(UniversityTest, AllCoursesAreScheduled) {
-    EXPECT_TRUE(university.best_timetable.size() == university.get_courses().size() || university.best_timetable.size() == 0) << "Not all courses are scheduled! " << std::endl;
+    std::size_t timetable_size = university.best_timetable.size();
+    std::size_t courses_size = university.get_courses().size();
+    EXPECT_TRUE(timetable_size == courses_size || timetable_size == 0) << "Not all courses are scheduled!";
+  
 }
 
 // Testing saving to json functionality
 TEST_P(UniversityTest, SaveStateToJson) {
     std::string saved_file = "tests/saved_test.json";
     university.save_state(saved_file); 
-    EXPECT_TRUE(compare_jsons(json_file, saved_file))
-        << "The saved JSON file does not match the original.";
+    EXPECT_TRUE(compare_jsons(json_file, saved_file)) << "The saved JSON file does not match the original.";
     std::remove(saved_file.c_str()); 
 }
 
