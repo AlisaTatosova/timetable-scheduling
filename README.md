@@ -101,7 +101,7 @@ Instructors and their availability, along with preferred courses:
   - Available: Monday 12:50 - 14:20, Wednesday 09:00 - 10:35
   - Preferred Courses: Biology, Philosophy, Chemistry
 - **Dr. Martinez:**
-  - Available: Monday 10:45 - 12:20
+  - Available: Monday 10:45 - 12:20, Wednesday 10:45 - 12:20
   - Preferred Course: Computer Science
 - **Dr. Allen:**
   - Available: Thursday 09:00 - 10:35
@@ -134,7 +134,7 @@ Instructors and their availability, along with preferred courses:
   - Preferred Course: Philosophy
 - **Dr. Carter:**
   - Available: Monday Tuesday 12:50 - 14:20
-  - Preferred Course: Economics Science
+  - Preferred Course: Economics 
 - **Dr. Davis:**
   - Available: Tuesday 14:35 - 16:05
   - Preferred Courses: Psychology
